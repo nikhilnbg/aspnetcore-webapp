@@ -1,0 +1,53 @@
+﻿@page "/"
+
+<PageTitle>Base64 Encoder/Decoder</PageTitle>
+
+<p>
+    <textarea @bind=_inputValue></textarea><br />
+    <button @onclick=Encode>Base 64 Encode</button>
+</p>
+
+<p>
+    <textarea @bind=_base64Value></textarea><br />
+    <button @onclick=Decode>Base 64 Decode</button>
+</p>
+
+
+@code {
+    private string _inputValue;
+    private string _base64Value;
+
+    public Index()
+    {
+        _inputValue = "Enter a value";
+        _base64Value = _inputValue.Base64Encode();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+    private void Encode()
+    {
+        try
+        {
+            _base64Value = _inputValue?.Base64Encode();
+        }
+        catch (Exception ex)
+        {
+            _base64Value = ex.Message;
+        }
+    }
+
+    private void Decode()
+    {
+        try
+        {
+            _inputValue = _base64Value?.Base64Decode();
+        }
+        catch (Exception ex)
+        {
+            _inputValue = ex.Message;
+        }
+    }
+}
