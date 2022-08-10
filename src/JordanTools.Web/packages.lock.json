@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net6.0": {
+      "Jordan.Tools.Extensions": {
+        "type": "Direct",
+        "requested": "[1.0.55, )",
+        "resolved": "1.0.55",
+        "contentHash": "JnXCFV1Nkm9OBZM4hXfx+GRwEGr0mYnnV22TKsY/4xQo1MbD4YvAt+s8i3xIwL0bOs1+m+hrrKnLKAAGKg2wwQ==",
+        "dependencies": {
+          "Jordan.Tools.Ints": "1.0.55",
+          "Jordan.Tools.Strings": "1.0.55"
+        }
+      },
+      "Jordan.Tools.Ints": {
+        "type": "Transitive",
+        "resolved": "1.0.55",
+        "contentHash": "kVc64UCNFsmzjnWEQ7t7JXq+U3HLoUfEEUCGdoChzVST+6nArpNnjBhrNwl6klJslbrn4Q7UxuCQ+La8CjH+DA=="
+      },
+      "Jordan.Tools.Strings": {
+        "type": "Transitive",
+        "resolved": "1.0.55",
+        "contentHash": "00kPLOd0+5vjr8rTKZgx66UkhS8zPTN8EHJcTmwJH6W0viKDFrb76Zna65/WFF5Us2XanfJ9G+QON+UHuinBAg=="
+      }
+    }
+  }
+}
