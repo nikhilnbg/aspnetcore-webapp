@@ -8,10 +8,7 @@ param location string = resourceGroup().location
 @description('The SKU of App Service Plan.')
 param sku string = 'F1'
 
-@description('The Runtime stack of current web app')
-param linuxFxVersion string = 'DOTNETCORE|6.0'
-
-var appServicePlanPortalName = 'AppServicePlan-${webAppName}'
+var appServicePlanPortalName = '${webAppName}-asp'
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   name: appServicePlanPortalName
@@ -19,9 +16,8 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   sku: {
     name: sku
   }
-  kind: 'linux'
   properties: {
-    reserved: true
+    reserved: false
   }
 }
 
@@ -32,7 +28,6 @@ resource webApp 'Microsoft.Web/sites@2021-02-01' = {
     httpsOnly: true
     serverFarmId: appServicePlan.id
     siteConfig: {
-      linuxFxVersion: linuxFxVersion
       minTlsVersion: '1.2'
       ftpsState: 'FtpsOnly'
     }
