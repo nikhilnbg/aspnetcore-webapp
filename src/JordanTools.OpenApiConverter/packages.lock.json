@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net6.0": {
+      "Microsoft.OpenApi": {
+        "type": "Direct",
+        "requested": "[1.4.0, )",
+        "resolved": "1.4.0",
+        "contentHash": "4z2X85eU1geLYRmcEn6uze/6zEfvLLzB4XBJADnSE8Og7tvVNLldS51X79Ae5J9cQw1vACHGPYuE1WdW44ID/Q=="
+      },
+      "Microsoft.OpenApi.Readers": {
+        "type": "Direct",
+        "requested": "[1.4.0, )",
+        "resolved": "1.4.0",
+        "contentHash": "tkDBB5KAXFqAmPvJv0FbvC2+v0JFCWFvYftYCL93lPns+zmA7Mv1bwDTrauDZXSgLLDxvAN3I00hp+WW3Yg88w==",
+        "dependencies": {
+          "Microsoft.OpenApi": "1.4.0",
+          "SharpYaml": "2.1.0"
+        }
+      },
+      "SharpYaml": {
+        "type": "Transitive",
+        "resolved": "2.1.0",
+        "contentHash": "2jBenJ6QN0mj8G3ohrNO/uNhA92OJYsQFuI5dJ4zM/HauVoC/oJzK1sCVlUaVUpuXpHUa/k1waXVkkBR2luP/w=="
+      }
+    }
+  }
+}

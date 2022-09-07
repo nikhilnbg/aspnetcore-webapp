@@ -1,3 +1,4 @@
+using JordanTools.OpenApiConverter;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -12,6 +13,8 @@ namespace JordanTools.Web
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
+
+            builder.Services.AddScoped<IConverter, Converter>();
 
             var app = builder.Build();
 

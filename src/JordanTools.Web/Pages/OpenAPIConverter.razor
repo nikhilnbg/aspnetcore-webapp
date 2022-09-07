@@ -1,0 +1,77 @@
+﻿@page "/openapiconverter"
+@using JordanTools.OpenApiConverter
+@using Microsoft.OpenApi
+
+<h3>OpenAPIConverter</h3>
+
+<div>
+	<InputFile OnChange="HandleInputFileChanged" />
+</div>
+<div>
+    <p>
+        OpenAPI Specification Version:<br />
+        <input type="radio" name="version" value="2.0" checked="@_selectedVersion.Equals(OpenApiSpecVersion.OpenApi2_0)" @onchange="SelectOpenApiVersion"/> <label>2.0</label>
+        <br />
+        <input type="radio" name="version" value="3.0" checked="@_selectedVersion.Equals(OpenApiSpecVersion.OpenApi3_0)" @onchange="SelectOpenApiVersion"/> <label>3.0</label>
+    </p>
+</div>
+<div>
+    <p>
+        Format:<br />
+        <input type="radio" name="format" value="JSON" checked="@_selectedFormat.Equals(OpenApiFormat.Json)" @onchange="SelectOpenApiFormat" /> <label>JSON</label>
+        <br />
+        <input type="radio" name="format" value="YAML" checked="@_selectedFormat.Equals(OpenApiFormat.Yaml)" @onchange="SelectOpenApiFormat" /> <label>YAML</label>
+    </p>
+</div>
+<div>
+    <label>Response</label>
+    <textarea @bind="@_response" rows="50" style="width:100%"/>
+</div>
+
+@code {
+    [Inject]
+    private IConverter _openApiConverter { get; set; }
+
+    private string _response = "Import a file to get started.";
+
+    private Dictionary<string, OpenApiSpecVersion> _specVersions = new Dictionary<string, OpenApiSpecVersion>{
+        {"2.0", OpenApiSpecVersion.OpenApi2_0},
+        {"3.0", OpenApiSpecVersion.OpenApi3_0}
+    };
+
+    private Dictionary<string, OpenApiFormat> _specFormats = new Dictionary<string, OpenApiFormat>{
+        {"JSON", OpenApiFormat.Json},
+        {"YAML", OpenApiFormat.Yaml}
+    };
+
+
+    private OpenApiSpecVersion _selectedVersion = OpenApiSpecVersion.OpenApi2_0;
+    private OpenApiFormat _selectedFormat = OpenApiFormat.Json;
+
+
+    private async Task HandleInputFileChanged(InputFileChangeEventArgs e)
+    {
+        var memoryStream = new MemoryStream();
+        await e.File.OpenReadStream(512000000).CopyToAsync(memoryStream);
+
+        try
+        {
+            _response = await _openApiConverter.ConvertAsync(memoryStream, _selectedVersion, OpenApiFormat.Json);
+        }
+        catch(Exception ex)
+        {
+            _response = $"Error: {ex.Message}";
+        }
+    }
+
+    private void SelectOpenApiVersion(ChangeEventArgs args){
+        var version = args.Value.ToString();
+        _selectedVersion = _specVersions[version];
+    }
+
+    private void SelectOpenApiFormat(ChangeEventArgs args)
+    {
+        var format = args.Value.ToString();
+        _selectedFormat = _specFormats[format];
+    }
+}

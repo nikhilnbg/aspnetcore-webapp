@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JordanTools.Web", "src\JordanTools.Web\JordanTools.Web.csproj", "{71894E97-0780-4EB5-BCF7-BCFA5E3B28BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JordanTools.Web", "src\JordanTools.Web\JordanTools.Web.csproj", "{71894E97-0780-4EB5-BCF7-BCFA5E3B28BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{CF8C1E8F-70FE-445C-B575-BB05294C63C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JordanTools.OpenApiConverter", "src\JordanTools.OpenApiConverter\JordanTools.OpenApiConverter.csproj", "{B24E6751-921D-4870-9176-8AD586AE08B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{71894E97-0780-4EB5-BCF7-BCFA5E3B28BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71894E97-0780-4EB5-BCF7-BCFA5E3B28BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71894E97-0780-4EB5-BCF7-BCFA5E3B28BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24E6751-921D-4870-9176-8AD586AE08B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24E6751-921D-4870-9176-8AD586AE08B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24E6751-921D-4870-9176-8AD586AE08B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24E6751-921D-4870-9176-8AD586AE08B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B24E6751-921D-4870-9176-8AD586AE08B5} = {CF8C1E8F-70FE-445C-B575-BB05294C63C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {731574E8-0E1C-46EE-804C-1E42D0DCACFC}

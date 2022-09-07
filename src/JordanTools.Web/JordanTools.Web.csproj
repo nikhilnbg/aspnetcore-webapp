@@ -10,4 +10,8 @@
     <PackageReference Include="Jordan.Tools.Extensions" Version="1.0.55" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JordanTools.OpenApiConverter\JordanTools.OpenApiConverter.csproj" />
+  </ItemGroup>
+
 </Project>
