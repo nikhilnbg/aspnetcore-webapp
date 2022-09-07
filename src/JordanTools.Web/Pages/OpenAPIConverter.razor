@@ -56,7 +56,7 @@
 
         try
         {
-            _response = await _openApiConverter.ConvertAsync(memoryStream, _selectedVersion, OpenApiFormat.Json);
+            _response = await _openApiConverter.ConvertAsync(memoryStream, _selectedVersion, _selectedFormat);
         }
         catch(Exception ex)
         {
